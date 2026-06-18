@@ -1,0 +1,21 @@
+import { Link, useNavigate } from "react-router-dom"
+
+export const NavBar = () => {
+  const navigate = useNavigate()
+
+  const handleLogout = () => {
+    localStorage.removeItem("partstash_token")
+    navigate("/login")
+  }
+
+  return (
+    <nav>
+      <Link to="/">PartStash</Link>
+      <Link to="/">Home</Link>
+      <Link to="/projects">Projects</Link>
+      <Link to="/components">Inventory</Link>
+      <Link to="/profile">Profile</Link>
+      <button type="button" onClick={handleLogout}>Logout</button>
+    </nav>
+  )
+}

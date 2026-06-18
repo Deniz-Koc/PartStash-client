@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { Authorized } from "./components/Authorized"
 import { Login } from "./views/Login"
 import { Dashboard } from "./views/Dashboard"
 import { Projects } from "./views/Projects"
@@ -12,12 +13,15 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/projects/:projectId" element={<ProjectDetail />} />
-        <Route path="/components" element={<Inventory />} />
-        <Route path="/components/:componentId" element={<ComponentDetail />} />
-        <Route path="/profile" element={<Profile />} />
+
+        <Route element={<Authorized />}>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/:projectId" element={<ProjectDetail />} />
+          <Route path="/components" element={<Inventory />} />
+          <Route path="/components/:componentId" element={<ComponentDetail />} />
+          <Route path="/profile" element={<Profile />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   )
