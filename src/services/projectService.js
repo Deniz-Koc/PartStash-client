@@ -7,3 +7,11 @@ export const getAllProjects = () => {
     }
   }).then((res) => res.json())
 }
+
+export const getProjectById = (id) => {
+  return fetch(`${API_URL}/projects/${id}`, {
+    headers: {
+      "Authorization": `Token ${localStorage.getItem("partstash_token")}`
+    }
+  }).then((res) => res.json())
+}
