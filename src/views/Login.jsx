@@ -27,6 +27,7 @@ export const Login = () => {
     register(username, email, password).then((data) => {
       if (data.token) {
         localStorage.setItem("partstash_token", data.token)
+        localStorage.setItem("partstash_username", username)
         navigate("/")
       } else {
         window.alert("Registration failed")
@@ -38,11 +39,6 @@ export const Login = () => {
     <div>
       <h1>PartStash</h1>
       <p>Find any part like a detective.</p>
-
-      <div>
-        <button type="button" onClick={() => setIsRegistering(false)}>Log In</button>
-        <button type="button" onClick={() => setIsRegistering(true)}>Register</button>
-      </div>
 
       <form onSubmit={isRegistering ? handleRegister : handleLogin}>
         <input
@@ -70,6 +66,13 @@ export const Login = () => {
 
         <button type="submit">{isRegistering ? "Register" : "Log In"}</button>
       </form>
+
+      <p>
+        {isRegistering ? "Already have an account? " : "Don't have an account? "}
+        <button type="button" onClick={() => setIsRegistering(!isRegistering)}>
+          {isRegistering ? "Log In" : "Register"}
+        </button>
+      </p>
     </div>
   )
 }
