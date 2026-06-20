@@ -5,6 +5,7 @@ export const NavBar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("partstash_token")
+    localStorage.removeItem("partstash_username")
     navigate("/login")
   }
 
