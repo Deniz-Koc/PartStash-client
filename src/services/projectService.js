@@ -26,3 +26,23 @@ export const createProject = (project) => {
     body: JSON.stringify(project)
   }).then((res) => res.json())
 }
+
+export const updateProject = (id, project) => {
+  return fetch(`${API_URL}/projects/${id}`, {
+    method: "PUT",
+    headers: {
+      "Authorization": `Token ${localStorage.getItem("partstash_token")}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(project)
+  }).then((res) => res.json())
+}
+
+export const deleteProject = (id) => {
+  return fetch(`${API_URL}/projects/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Authorization": `Token ${localStorage.getItem("partstash_token")}`
+    }
+  })
+}

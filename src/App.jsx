@@ -4,6 +4,7 @@ import { Login } from "./views/Login"
 import { Dashboard } from "./views/Dashboard"
 import { Projects } from "./views/Projects"
 import { NewProject } from "./views/NewProject"
+import { EditProject } from "./views/EditProject"
 import { ProjectDetail } from "./views/ProjectDetail"
 import { Inventory } from "./views/Inventory"
 import { NewComponent } from "./views/NewComponent"
@@ -21,6 +22,7 @@ function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/new" element={<NewProject />} />
           <Route path="/projects/:projectId" element={<ProjectDetail />} />
+          <Route path="/projects/:projectId/edit" element={<EditProject />} />
           <Route path="/components" element={<Inventory />} />
           <Route path="/components/new" element={<NewComponent />} />
           <Route path="/components/:componentId" element={<ComponentDetail />} />
