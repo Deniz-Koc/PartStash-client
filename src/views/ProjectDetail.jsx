@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import { useParams, Link } from "react-router-dom"
-import { getProjectById } from "../services/projectService"
+import { useParams, useNavigate, Link } from "react-router-dom"
+import { getProjectById, deleteProject } from "../services/projectService"
 import { getAllComponents } from "../services/componentService"
 import {
   getProjectComponents,
@@ -10,6 +10,7 @@ import {
 
 export const ProjectDetail = () => {
   const { projectId } = useParams()
+  const navigate = useNavigate()
   const [project, setProject] = useState(null)
   const [projectComponents, setProjectComponents] = useState([])
   const [components, setComponents] = useState([])
@@ -46,6 +47,12 @@ export const ProjectDetail = () => {
     })
   }
 
+  const handleDeleteProject = () => {
+    deleteProject(projectId).then(() => {
+      navigate("/projects")
+    })
+  }
+
   if (!project) {
     return <p>Loading...</p>
   }
@@ -54,6 +61,8 @@ export const ProjectDetail = () => {
     <div>
       <Link to="/projects">← Back to projects</Link>
       <h1>{project.name}</h1>
+      <Link to={`/projects/${projectId}/edit`}>Edit</Link>
+      <button type="button" onClick={handleDeleteProject}>Delete project</button>
       <p>{project.description}</p>
       <p>Created on: {project.created_on}</p>
 
