@@ -30,8 +30,10 @@ export const ComponentDetail = () => {
     <div>
       <Link to="/components">← Back to inventory</Link>
       <h1>{component.name}</h1>
-      <Link to={`/components/${componentId}/edit`}>Edit</Link>
-      <button type="button" onClick={handleDeleteComponent}>Delete component</button>
+      <div className="detail-actions">
+        <Link to={`/components/${componentId}/edit`} className="btn-edit">Edit</Link>
+        <button type="button" className="btn-delete" onClick={handleDeleteComponent}>Delete component</button>
+      </div>
       <p>{component.category?.label} — {component.part_number}</p>
       <p>{component.description}</p>
 

@@ -17,24 +17,42 @@ export const Dashboard = () => {
 
   return (
     <div>
-      <h1>Dashboard</h1>
+      <section className="hero">
+        <div className="hero-text">
+          <h1>Dashboard</h1>
+          <div className="stat-cards">
+            <div className="stat-card">
+              <span className="stat-number">{projects.length}</span>
+              <span className="stat-label">Projects</span>
+            </div>
+            <div className="stat-card">
+              <span className="stat-number">{components.length}</span>
+              <span className="stat-label">Components</span>
+            </div>
+            <div className="stat-card">
+              <span className="stat-number">{categories.length}</span>
+              <span className="stat-label">Categories</span>
+            </div>
+          </div>
+        </div>
+        <img src="/dashboard-art.png" alt="" className="hero-art" />
+      </section>
 
-      <div>
-        <div>Projects: {projects.length}</div>
-        <div>Components: {components.length}</div>
-        <div>Categories: {categories.length}</div>
-      </div>
-
-      <h2>Recent projects</h2>
-      <ul>
-        {projects.map((project) => {
-          return (
-            <li key={project.id}>
-              <Link to={`/projects/${project.id}`}>{project.name}</Link>
-            </li>
-          )
-        })}
-      </ul>
+      <section className="recent">
+        <div className="recent-text">
+          <h2>Recent projects</h2>
+          <div className="project-cards">
+            {projects.map((project) => {
+              return (
+                <Link key={project.id} to={`/projects/${project.id}`} className="project-card">
+                  {project.name}
+                </Link>
+              )
+            })}
+          </div>
+        </div>
+        <img src="/projects-art.png" alt="" className="recent-art" />
+      </section>
     </div>
   )
 }

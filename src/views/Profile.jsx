@@ -24,17 +24,28 @@ export const Profile = () => {
   }
 
   return (
-    <div>
-      <h1>Profile</h1>
-      <p>Logged in as: {username}</p>
+    <div className="profile">
+      <div className="profile-card">
+        <div className="profile-avatar">{username ? username[0].toUpperCase() : "?"}</div>
+        <h1>{username}</h1>
 
-      <div>
-        <div>Projects: {projects.length}</div>
-        <div>Components: {components.length}</div>
-        <div>Categories: {categories.length}</div>
+        <div className="stat-cards">
+          <div className="stat-card">
+            <span className="stat-number">{projects.length}</span>
+            <span className="stat-label">Projects</span>
+          </div>
+          <div className="stat-card">
+            <span className="stat-number">{components.length}</span>
+            <span className="stat-label">Components</span>
+          </div>
+          <div className="stat-card">
+            <span className="stat-number">{categories.length}</span>
+            <span className="stat-label">Categories</span>
+          </div>
+        </div>
+
+        <button type="button" onClick={handleLogout}>Logout</button>
       </div>
-
-      <button type="button" onClick={handleLogout}>Logout</button>
     </div>
   )
 }
