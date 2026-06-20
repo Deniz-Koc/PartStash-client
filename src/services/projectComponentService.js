@@ -7,3 +7,11 @@ export const getProjectComponents = (projectId) => {
     }
   }).then((res) => res.json())
 }
+
+export const getProjectComponentsByComponent = (componentId) => {
+  return fetch(`${API_URL}/project-components?component=${componentId}`, {
+    headers: {
+      "Authorization": `Token ${localStorage.getItem("partstash_token")}`
+    }
+  }).then((res) => res.json())
+}

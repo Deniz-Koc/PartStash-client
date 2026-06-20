@@ -7,3 +7,11 @@ export const getAllComponents = () => {
     }
   }).then((res) => res.json())
 }
+
+export const getComponentById = (id) => {
+  return fetch(`${API_URL}/components/${id}`, {
+    headers: {
+      "Authorization": `Token ${localStorage.getItem("partstash_token")}`
+    }
+  }).then((res) => res.json())
+}
