@@ -36,43 +36,44 @@ export const Login = () => {
   }
 
   return (
-    <div>
-      <h1>PartStash</h1>
-      <p>Find any part like a detective.</p>
+    <div className="login-page">
+      <div className="login-card">
+        <img src="/Logo.png" alt="PartStash" className="login-logo" />
 
-      <form onSubmit={isRegistering ? handleRegister : handleLogin}>
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(event) => setUsername(event.target.value)}
-        />
-
-        {isRegistering && (
+        <form onSubmit={isRegistering ? handleRegister : handleLogin}>
           <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(event) => setUsername(event.target.value)}
           />
-        )}
 
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-        />
+          {isRegistering && (
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+            />
+          )}
 
-        <button type="submit">{isRegistering ? "Register" : "Log In"}</button>
-      </form>
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+          />
 
-      <p>
-        {isRegistering ? "Already have an account? " : "Don't have an account? "}
-        <button type="button" onClick={() => setIsRegistering(!isRegistering)}>
-          {isRegistering ? "Log In" : "Register"}
-        </button>
-      </p>
+          <button type="submit">{isRegistering ? "Register" : "Log In"}</button>
+        </form>
+
+        <p className="login-toggle">
+          {isRegistering ? "Already have an account? " : "Don't have an account? "}
+          <button type="button" onClick={() => setIsRegistering(!isRegistering)}>
+            {isRegistering ? "Log In" : "Register"}
+          </button>
+        </p>
+      </div>
     </div>
   )
 }

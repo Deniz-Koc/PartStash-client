@@ -10,13 +10,15 @@ export const NavBar = () => {
   }
 
   return (
-    <nav>
-      <Link to="/">PartStash</Link>
-      <Link to="/">Home</Link>
-      <Link to="/projects">Projects</Link>
-      <Link to="/components">Inventory</Link>
-      <Link to="/profile">Profile</Link>
-      <button type="button" onClick={handleLogout}>Logout</button>
+    <nav className="navbar">
+      <Link to="/" className="navbar-brand">PartStash</Link>
+      <div className="navbar-links">
+        <Link to="/">Home</Link>
+        <Link to="/projects">Projects</Link>
+        <Link to="/components">Inventory</Link>
+        <Link to="/profile">Profile</Link>
+        <button type="button" onClick={handleLogout}>Logout</button>
+      </div>
     </nav>
   )
 }
