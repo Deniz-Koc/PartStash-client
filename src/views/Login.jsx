@@ -14,6 +14,7 @@ export const Login = () => {
     login(username, password).then((data) => {
       if (data.token) {
         localStorage.setItem("partstash_token", data.token)
+        localStorage.setItem("partstash_username", username)
         navigate("/")
       } else {
         window.alert("Invalid credentials")
