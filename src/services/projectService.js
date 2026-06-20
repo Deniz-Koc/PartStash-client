@@ -15,3 +15,14 @@ export const getProjectById = (id) => {
     }
   }).then((res) => res.json())
 }
+
+export const createProject = (project) => {
+  return fetch(`${API_URL}/projects`, {
+    method: "POST",
+    headers: {
+      "Authorization": `Token ${localStorage.getItem("partstash_token")}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(project)
+  }).then((res) => res.json())
+}

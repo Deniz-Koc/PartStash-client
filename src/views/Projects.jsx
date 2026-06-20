@@ -14,6 +14,7 @@ export const Projects = () => {
   return (
     <div>
       <h1>Projects</h1>
+      <Link to="/projects/new">+ New project</Link>
       {projects.map((project) => {
         return (
           <div key={project.id}>
