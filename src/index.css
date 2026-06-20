@@ -208,3 +208,218 @@ th {
   border-color: var(--accent);
   color: var(--accent);
 }
+
+/* Dashboard */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.hero-text {
+  flex: 1;
+  text-align: center;
+}
+
+.stat-cards {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 110px;
+  padding: 1rem 1.3rem;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.hero-art,
+.recent-art {
+  width: 280px;
+  max-width: 38%;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+}
+
+.recent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.recent-text {
+  flex: 1;
+  text-align: center;
+}
+
+.recent-text h2 {
+  font-size: 1.9rem;
+}
+
+.project-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.project-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.8rem 1.2rem;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.project-card:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* List pages (Projects, Inventory) */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
+}
+
+.btn-new {
+  background-color: var(--accent);
+  color: #062029;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.btn-new:hover {
+  background-color: var(--accent-strong);
+  color: #062029;
+}
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.list-card {
+  display: block;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.9rem 1.2rem;
+}
+
+.list-card:hover {
+  border-color: var(--accent);
+}
+
+.list-card-title {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.list-card:hover .list-card-title {
+  color: var(--accent);
+}
+
+.list-card-meta {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-left: 0.6rem;
+}
+
+/* Profile */
+.profile {
+  display: flex;
+  justify-content: center;
+}
+
+.profile-card {
+  width: 460px;
+  max-width: 100%;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.profile-avatar {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background-color: var(--accent);
+  color: #062029;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.profile-card .stat-cards {
+  margin: 1.5rem 0;
+}
+
+.profile-card h1 {
+  text-transform: capitalize;
+}
+
+/* Detail page actions */
+.detail-actions {
+  display: flex;
+  gap: 0.6rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.btn-edit {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.45rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.btn-edit:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btn-delete {
+  background-color: var(--danger);
+  color: #fff;
+  border: none;
+}
+
+.btn-delete:hover {
+  background-color: #dc2626;
+}

@@ -41,7 +41,7 @@ export const ProjectDetail = () => {
     })
   }
 
-    const handleRemove = (pcId) => {
+  const handleRemove = (pcId) => {
     if (window.confirm("Remove this component from the project?")) {
       deleteProjectComponent(pcId).then(() => {
         loadProjectComponents()
@@ -65,8 +65,10 @@ export const ProjectDetail = () => {
     <div>
       <Link to="/projects">← Back to projects</Link>
       <h1>{project.name}</h1>
-      <Link to={`/projects/${projectId}/edit`}>Edit</Link>
-      <button type="button" onClick={handleDeleteProject}>Delete project</button>
+      <div className="detail-actions">
+        <Link to={`/projects/${projectId}/edit`} className="btn-edit">Edit</Link>
+        <button type="button" className="btn-delete" onClick={handleDeleteProject}>Delete project</button>
+      </div>
       <p>{project.description}</p>
       <p>Created on: {project.created_on}</p>
 

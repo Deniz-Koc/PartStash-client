@@ -11,16 +11,20 @@ export const Inventory = () => {
 
   return (
     <div>
-      <h1>Inventory</h1>
-      <Link to="/components/new">+ New component</Link>
-      {components.map((component) => {
-        return (
-          <div key={component.id}>
-            <Link to={`/components/${component.id}`}>{component.name}</Link>
-            <span> — {component.category?.label} — {component.part_number}</span>
-          </div>
-        )
-      })}
+      <div className="page-header">
+        <h1>Inventory</h1>
+        <Link to="/components/new" className="btn-new">+ New component</Link>
+      </div>
+      <div className="card-list">
+        {components.map((component) => {
+          return (
+            <Link key={component.id} to={`/components/${component.id}`} className="list-card">
+              <span className="list-card-title">{component.name}</span>
+              <span className="list-card-meta">{component.category?.label} · {component.part_number}</span>
+            </Link>
+          )
+        })}
+      </div>
     </div>
   )
 }
