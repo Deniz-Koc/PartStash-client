@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react"
-import { useParams, Link } from "react-router-dom"
-import { getComponentById } from "../services/componentService"
+import { useParams, useNavigate, Link } from "react-router-dom"
+import { getComponentById, deleteComponent } from "../services/componentService"
 import { getProjectComponentsByComponent } from "../services/projectComponentService"
 
 export const ComponentDetail = () => {
   const { componentId } = useParams()
+  const navigate = useNavigate()
   const [component, setComponent] = useState(null)
   const [usages, setUsages] = useState([])
 
@@ -12,6 +13,14 @@ export const ComponentDetail = () => {
     getComponentById(componentId).then(setComponent)
     getProjectComponentsByComponent(componentId).then(setUsages)
   }, [componentId])
+
+  const handleDeleteComponent = () => {
+    if (window.confirm("Delete this component?")) {
+      deleteComponent(componentId).then(() => {
+        navigate("/components")
+      })
+    }
+  }
 
   if (!component) {
     return <p>Loading...</p>
@@ -21,6 +30,8 @@ export const ComponentDetail = () => {
     <div>
       <Link to="/components">← Back to inventory</Link>
       <h1>{component.name}</h1>
+      <Link to={`/components/${componentId}/edit`}>Edit</Link>
+      <button type="button" onClick={handleDeleteComponent}>Delete component</button>
       <p>{component.category?.label} — {component.part_number}</p>
       <p>{component.description}</p>
 

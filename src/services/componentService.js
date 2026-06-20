@@ -26,3 +26,23 @@ export const createComponent = (component) => {
     body: JSON.stringify(component)
   }).then((res) => res.json())
 }
+
+export const updateComponent = (id, component) => {
+  return fetch(`${API_URL}/components/${id}`, {
+    method: "PUT",
+    headers: {
+      "Authorization": `Token ${localStorage.getItem("partstash_token")}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(component)
+  }).then((res) => res.json())
+}
+
+export const deleteComponent = (id) => {
+  return fetch(`${API_URL}/components/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Authorization": `Token ${localStorage.getItem("partstash_token")}`
+    }
+  })
+}
