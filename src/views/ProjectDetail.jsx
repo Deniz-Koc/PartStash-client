@@ -41,16 +41,20 @@ export const ProjectDetail = () => {
     })
   }
 
-  const handleRemove = (pcId) => {
-    deleteProjectComponent(pcId).then(() => {
-      loadProjectComponents()
-    })
+    const handleRemove = (pcId) => {
+    if (window.confirm("Remove this component from the project?")) {
+      deleteProjectComponent(pcId).then(() => {
+        loadProjectComponents()
+      })
+    }
   }
 
   const handleDeleteProject = () => {
-    deleteProject(projectId).then(() => {
-      navigate("/projects")
-    })
+    if (window.confirm("Delete this project?")) {
+      deleteProject(projectId).then(() => {
+        navigate("/projects")
+      })
+    }
   }
 
   if (!project) {
