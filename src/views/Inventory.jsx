@@ -12,6 +12,7 @@ export const Inventory = () => {
   return (
     <div>
       <h1>Inventory</h1>
+      <Link to="/components/new">+ New component</Link>
       {components.map((component) => {
         return (
           <div key={component.id}>
