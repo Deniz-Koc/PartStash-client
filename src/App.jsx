@@ -8,6 +8,7 @@ import { EditProject } from "./views/EditProject"
 import { ProjectDetail } from "./views/ProjectDetail"
 import { Inventory } from "./views/Inventory"
 import { NewComponent } from "./views/NewComponent"
+import { EditComponent } from "./views/EditComponent"
 import { ComponentDetail } from "./views/ComponentDetail"
 import { Profile } from "./views/Profile"
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="/components" element={<Inventory />} />
           <Route path="/components/new" element={<NewComponent />} />
           <Route path="/components/:componentId" element={<ComponentDetail />} />
+          <Route path="/components/:componentId/edit" element={<EditComponent />} />
           <Route path="/profile" element={<Profile />} />
         </Route>
       </Routes>
